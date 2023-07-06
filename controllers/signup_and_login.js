@@ -1,7 +1,5 @@
 const { signup } = require("../models");
 
-//   const sequelize = require("sequelize");
-// const newuser = require("../models/newuser");
 
 const signin_Ctlr = async (req, resp) => {
   console.log(req.body, "bodyy");
@@ -39,41 +37,30 @@ const signin_Ctlr = async (req, resp) => {
   // }
 };
 
-//   const login_ctrl = async (req, resp) => {
-//     console.log(req.body);
+  const login_ctrl = async (req, resp) => {
+    console.log(req.body);
 
-//     if ("email" in req.body === false) {
-//       return resp.send("Please enter email");
-//     }
+    if ("Email" in req.body === false) {
+      return resp.send("Please enter Email");
+    }
 
-//     if ("password" in req.body === false) {
-//       return resp.send("Please enter Password");
-//     }
+    if ("Password" in req.body === false) {
+      return resp.send("Please enter Password");
+    }
 
-//     const user = await signin.findOne({
-//       where: { email: req.body.email, password: req.body.password },
-//     });
-//     console.log(user, "userrrrrr");
+    const user = await signin.findOne({
+      where: { Email: req.body.Email, Password: req.body.Password },
+    });
+    console.log(user, "userrrrrr");
 
-//     if (user) {
-//       return resp.send({ message: "sucesufully login ", sucess: true });
-//     } else {
-//       return resp.send({ message: "invalid password ", sucess: false });
-//     }
+    if (user) {
+      return resp.send({ message: "sucesufully login ", sucess: true });
+    } else {
+      return resp.send({ message: "invalid password ", sucess: false });
+    }
 
-//     // if (user === null) {
-//     //   console.log("ok");
-//     //   return resp.send("no user found ");
-//     // }
-
-//     // if(req.body.password !== user.password) {
-//     //   return resp.send("incorrect password");
-//     // }
-
-//     //  if(req.body.email === user.email && req.body.password === user.password) {
-//     //  return resp.json("sucessufully log in")
-//     // }
-//   };
+ 
+  };
 module.exports = {
-  signin_Ctlr,
+  signin_Ctlr,login_ctrl
 };
